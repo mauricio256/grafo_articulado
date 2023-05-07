@@ -23,7 +23,7 @@ int main(void){
 											
 	    if( file == NULL ){  //// verifica se o arquivo file pode ser lido
 	    	system("cls");
-	    	printf("\n Erro na leitura do arquivo! \n");
+	    	printf("\n Erro na leitura do arquivo ou arquivo inexistente \n");
 		}else{ 
 	        for(i=0;i<7;i++){ //// percorre todo o arquivo lendo e atribuido a cada valor de i e j a matriz[][] em linhas e colunas   
 	            for(j=0;j<7;j++){
