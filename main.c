@@ -15,12 +15,12 @@ int main(void){
 		printf(" Digite o nome do arquivo: ");
 		scanf("%s", nomeArquivo);
 		
-		strcat(nomeArquivo, ext); 	/// a funÁ„o strcat cocaltena o valor da primeira variavel a segunda.
+		strcat(nomeArquivo, ext); 	/// a fun√ß√£o strcat cocaltena o valor da primeira variavel a segunda.
 		
-	    FILE *file;   ///cria ponteiro para um tipo de dados, padr„o do C, do tipo file.
-	    file = fopen( nomeArquivo,"r" ); /* A funÁ„o fopen(), que est· sendo atribuida ao ponteiro do tipo file,
+	    FILE *file;   ///cria ponteiro para um tipo de dados, padr√£o do C, do tipo file.
+	    file = fopen( nomeArquivo,"r" ); /* A fun√ß√£o fopen(), que est√° sendo atribuida ao ponteiro do tipo file,
 										    abre o arquivo com o segundo atributo com letra "r" de read. O primeiro 
-											atributo È o caminho+nome+entens„o do arquivo. */ 
+											atributo √© o caminho+nome+entens√£o do arquivo. */ 
 											
 	    if( file == NULL ){  //// verifica se o arquivo file pode ser lido
 	    	system("cls");
@@ -49,23 +49,12 @@ int main(void){
 		    for(i=0;i<7;i++){ 
 		        for(j=0;j<7;j++){   ////// i representa numero de linhas  e j representa numero de colunas 
 					if(i==1 && j==2){
-							vet[0] =  matriz[i][j]; //// atribui 1 vertice a 1∞ posiÁ„o do vetor
-							vet[1] =  matriz[j][i]; //// atribui o vertice de ligaÁ„o a 2∞ posiÁ„o do vetor
+							vet[0] =  matriz[i][j]; //// atribui 1 vertice a 1¬∞ posi√ß√£o do vetor
+							vet[1] =  matriz[j][i]; //// atribui o vertice de liga√ß√£o a 2¬∞ posi√ß√£o do vetor
 					} 		
 		        }
 		    }		
-											/*
-		    											 for(i=0;i<7;i++){ 
-													        for(j=0;j<7;j++){   ////// i representa numero de linhas  e j representa numero de colunas 
-																if(i==1 && j==0){
-																		vet[0] =  matriz[i][j]; //// atribui 1 vertice a 1∞ posiÁ„o do vetor
-																} 
-																if(i==0 && j==1){  ////// i representa numero de linhas  e j representa numero de colunas 
-																	vet[1] =  matriz[i][j]; // atribui 1 vertice a 2∞ posiÁ„o do vetor
-																}
-													        }
-													    }
-		    										*/
+											
 		    
 		    printf("\n vetor com dois vertices selecionados \n");
 		    for(i=0;i<2;i++){
@@ -84,3 +73,20 @@ int main(void){
 	return 0;
 
 }
+
+
+/* OBS:
+	for(i=0;i<7;i++){ 
+		for(j=0;j<7;j++){   ////// i representa numero de linhas  e j representa numero de colunas 
+			if(i==1 && j==0){
+				vet[0] =  matriz[i][j]; //// atribui 1 vertice a 1¬∞ posi√ß√£o do vetor
+			} 
+			if(i==0 && j==1){  ////// i representa numero de linhas  e j representa numero de colunas 
+				vet[1] =  matriz[i][j]; // atribui 1 vertice a 2¬∞ posi√ß√£o do vetor
+			}
+		}
+	}
+*/
+
+
+
