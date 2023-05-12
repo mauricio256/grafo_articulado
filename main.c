@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include<stdbool.h>
 
 
 int main(void){
-	char nomeArquivo[61];
+	char nomeArquivo[60];
 	char ext[4] = {".txt"};
     int matriz[7][7];
-    int vet[2];
     int i,j;
     int continua;
     
@@ -15,12 +15,12 @@ int main(void){
 		printf(" Digite o nome do arquivo: ");
 		scanf("%s", nomeArquivo);
 		
-		strcat(nomeArquivo, ext); 	/// a função strcat cocaltena o valor da primeira variavel a segunda.
+		strcat(nomeArquivo, ext); 	/// a funcao strcat cocaltena o valor da primeira variavel a segunda.
 		
 	    FILE *file;   ///cria ponteiro para um tipo de dados, padrão do C, do tipo file.
-	    file = fopen( nomeArquivo,"r" ); /* A função fopen(), que está sendo atribuida ao ponteiro do tipo file,
+	    file = fopen( nomeArquivo,"r" ); /* A funcao fopen(), que está sendo atribuida ao ponteiro do tipo file,
 										    abre o arquivo com o segundo atributo com letra "r" de read. O primeiro 
-											atributo é o caminho+nome+entensão do arquivo. */ 
+											atributo o caminho+nome+entensao do arquivo. */ 
 											
 	    if( file == NULL ){  //// verifica se o arquivo file pode ser lido
 	    	system("cls");
@@ -44,21 +44,9 @@ int main(void){
 		        printf("\n");
 		    }
 		
-		    
-		    //// pega dois vertice e joga em um vetor
-		    for(i=0;i<7;i++){ 
-		        for(j=0;j<7;j++){   ////// i representa numero de linhas  e j representa numero de colunas 
-					if(i==1 && j==2){
-							vet[0] =  matriz[i][j]; //// atribui 1 vertice a 1° posição do vetor
-							vet[1] =  matriz[j][i]; //// atribui o vertice de ligação a 2° posição do vetor
-					} 		
-		        }
-		    }		
-											
-		    
-		    printf("\n vetor com dois vertices selecionados \n");
-		    for(i=0;i<2;i++){
-				printf(" [%d]", vet[i]); /// mostra o vetor na tela
+		    //// fun��o boleana que verifica se tem caminho entre dois vertices
+		    bool verifica_caminho(){
+		    	return true;
 			} 
 			
 		    printf("\n");
