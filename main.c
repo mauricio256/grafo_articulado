@@ -63,18 +63,4 @@ int main(void){
 }
 
 
-/* OBS:
-	for(i=0;i<7;i++){ 
-		for(j=0;j<7;j++){   ////// i representa numero de linhas  e j representa numero de colunas 
-			if(i==1 && j==0){
-				vet[0] =  matriz[i][j]; //// atribui 1 vertice a 1° posição do vetor
-			} 
-			if(i==0 && j==1){  ////// i representa numero de linhas  e j representa numero de colunas 
-				vet[1] =  matriz[i][j]; // atribui 1 vertice a 2° posição do vetor
-			}
-		}
-	}
-*/
-
-
 
