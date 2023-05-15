@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<stdbool.h>
 
 
 int main(void){
 	char nomeArquivo[60];
 	char ext[4] = {".txt"};
-    int matriz[7][7];
+    int matriz[4][4];
     int i,j;
     int continua;
     
@@ -26,13 +25,45 @@ int main(void){
 	    	system("cls");
 	    	printf("\n Erro na leitura ou arquivo inexistente \n");
 		}else{ 
-	        for(i=0;i<7;i++){ //// percorre todo o arquivo lendo e atribuido a cada valor de i e j a matriz[][] em linhas e colunas   
-	            for(j=0;j<7;j++){
+	        for(i=0;i<4;i++){ //// percorre todo o arquivo lendo e atribuido a cada valor de i e j a matriz[][] em linhas e colunas   
+	            for(j=0;j<4;j++){
 	                fscanf(file,"%d",&matriz[i][j]);
 	            }
+	        }   
+	    	
+	    	printf("As ligações de vertices sao:\n"); /// percorre
+		 	for(i=0;i<4;i++){
+		 		printf("%d-> ", i+1);
+	            for(j=0;j<4;j++){
+	                if(matriz[i][j] == 1){
+	                	printf("[%d]", j+1);
+					}
+	            }
+	            printf("\n");
 	        }
-	   
-			fflush(stdin);  /// limpa o bufer 
+			
+					
+		}/// fim do else
+		
+			
+		fclose(file); /// fecha o arquivo
+	    printf("\n tecle 'Enter' para digitar um novo arquivo ou tecle 's' se para sair \n");
+	    continua = getch();
+	    
+	}while (continua != 's'); 
+
+	return 0;
+
+
+
+
+
+
+
+
+/*
+
+	fflush(stdin);  /// limpa o bufer 
 			system("cls");
 		    printf("\n---| Matriz %s: |---\n", nomeArquivo);
 		    printf("\n");
@@ -43,24 +74,11 @@ int main(void){
 		        }
 		        printf("\n");
 		    }
-		
-		    //// função boleana que verifica se tem caminho entre dois vertices
-		    bool verifica_caminho(){
-		    	return true;
-			} 
-			
-		    printf("\n");
-		}
-   	   	fclose(file); /// fecha o arquivo
-    
-	    printf("\n tecle 'Enter' para digitar um novo arquivo ou tecle 's' se para sair \n");
-	    continua = getch();
-	    
-	}while (continua != 's'); 
-
-	return 0;
-
+		*/
 }
+
+
+
 
 
 
