@@ -5,8 +5,7 @@
 int main(void){
 	char nomeArquivo[60];
 	char ext[4] = {".txt"};
-    int matriz[4][4];
-    int matriz_sec[4][4];
+    int matriz[5][5];
     int encontrados[10];
     int i,j;
     int continua;
@@ -27,19 +26,23 @@ int main(void){
 	    	system("cls");
 	    	printf("\n Erro na leitura ou arquivo inexistente \n");
 		}else{ 
-	        for(i=0;i<4;i++){ //// percorre todo o arquivo lendo e atribuido a cada valor de i e j a matriz[][] em linhas e colunas   
-	            for(j=0;j<4;j++){
+	        for(i=0;i<5;i++){ //// percorre todo o arquivo lendo e atribuido a cada valor de i e j a matriz[][] em linhas e colunas   
+	            for(j=0;j<5;j++){
 	                fscanf(file,"%d",&matriz[i][j]);
 	            }
-	        }   
+	        }  
+
 	        
-	        
-	        
-	        
-	        
-	        /////////// função boleana
-	        int busca_largura(){
-	        	///// recebe 2 valores e verifica se ha caminho
+	        printf("As ligações de vertices sao:\n"); /// percorre
+		 	for(i=0;i<5;i++){
+		 		printf("%d-> ", i+1);
+	            for(j=0;j<5;j++){
+	                if(matriz[i][j] == 1){
+	                	printf("[%d]", j+1);
+	                
+					}
+	            }
+	            printf("\n");	
 			}
 	        
 	        
@@ -48,50 +51,7 @@ int main(void){
 	        
 	        
 	        
-	        
-	    	 printf("\n -----remove diagonal principal \n"); 
-		 	for(i=0;i<4;i++){
-	            for(j=0;j<4;j++){
-	                if(i != j){
-	                	printf("[%d]", matriz[i][j]);
-					}
-	            }
-	            printf("\n");
-	        }
-	        
-	        printf("\n -----remove linha1 \n");
-	        
-	    	for(i=0;i<4;i++){
-	            for(j=0;j<4;j++){
-	                if(i != 0){
-	                	printf("[%d]", matriz[i][j]);
-					}
-	            }
-	            printf("\n");
-	        } 
-	        
-	        printf("\n --- remove linha 2 \n");
-			for(i=0;i<4;i++){
-	            for(j=0;j<4;j++){
-	                if(i != 1){
-	                	printf("[%d]", matriz[i][j]);
-					}
-	            }
-	            printf("\n");
-	        } 
-		  
-	         printf("\n --- remove coluna 3 \n"); 
-			for(i=0;i<4;i++){
-	            for(j=0;j<4;j++){
-	                if(j != 2){
-	                	printf("[%d]", matriz[i][j]);
-					}
-	            }
-	            printf("\n");
-	        } 
-		  
-	        
-			
+	
 					
 		}/// fim do else
 		
