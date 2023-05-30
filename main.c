@@ -6,10 +6,14 @@ int main(void){
 	char nomeArquivo[60];
 	char ext[4] = {".txt"};
     int matriz[5][5];
+    int matriz_sec[5][5];
     int encontrados[6];
     int i, j;
     int continua; 
     int tot, vert, indice;
+    
+    
+    
     
     bool verifica_encont(int j){
     	bool aux;
@@ -22,7 +26,46 @@ int main(void){
 		 }
 		 return aux;   		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	int verifica_caminhos(int matriz_sec[5][5]){
+			int cont;
+			tot = 1;
+	        indice = 0;
+	        encontrados[tot] = 1;
+	        
+	        do { 
+	        	indice++;
+	        	for(j = 1; j<6; j++){
+	        		if (!verifica_encont(j) && matriz_sec[indice][j] == 1) { //// Percorre a matriz verificando se o vertice 
+																				//// na posição [vert] e [J] (J que vai de 1 à 5) é igual a 1.
+																				//// Se for e se a função "verifica_encont(j)" na posição J retornar falso,
+																				///  ele adicionar o valor no array[] de encontrados. se retornar true é pq ja tem no vertor de encont     
+						tot++;
+						encontrados[tot] = j;		
+					}	
+				}	 
+				
+			} while (indice != tot);	
+			
+		return	encontrados[indice]; /// retorna o valor do array de encontrado na ultima possição em que 
+									///	 encontrou um vertice (identificado por indice).
+	}
     
+    
+    
+
     
     
   	do{
@@ -44,39 +87,37 @@ int main(void){
 	        for(i=1;i<6;i++){ //// percorre todo o arquivo lendo e atribuido a cada valor de i e j a matriz[][] em linhas e colunas   
 	            for(j=1;j<6;j++){
 	                fscanf(file,"%d",&matriz[i][j]);
-	            }
-	        }  
+	            	matriz_sec[i][j] = matriz[i][j];
+				}
+	        } 
+	        
+	        
+
+	        
+
+	        ///// tentando zerar a matriz_sec
+	        int zera_vert = 5;
 	        
 	        for(i=1;i<6;i++){
-	        	encontrados[i] = 0;
-			}
-     
-	        tot = 1;
-	        indice = 0;
-	        encontrados[tot] = 1;
+	            for(j=1;j<6;j++){
+	            		if(i != zera_vert && j != zera_vert){
+	            			////matriz_sec[i] = 0;
+							///printf("[%d]",matriz_sec[i][j]);	
+				} 
+	        }
+	            
+	            printf("\n");
+	        }
 	        
-	        do { 
-	        	indice++;
-	        	for(j = 1; j<6; j++){
-	        		if (!verifica_encont(j) && matriz[indice][j] == 1) { //// Percorre a matriz verificando se o vertice 
-																				//// na posição [vert] e [J] (J que vai de 1 à 5) é igual a 1.
-																				//// Se for e se a função "verifica_encont(j)" na posição J retornar falso,
-																				///  ele adicionar o valor no array[] de encontrados. se retornar true é pq ja tem no vertor de encont     
-						tot++;
-						encontrados[tot] = j;		
-					}	
-				}	 
+			///////////////////////////////////////////////////////////////////////////////////////////
+			 
+			 
+			 
+		printf("[%d] vertices ligados", verifica_caminhos(matriz));
+     	
+		
 				
-			} while (indice != tot);		
-				
-		}/// fim do else
-		
-		for(i=1;i<6;i++){
-					printf("[%d] ", encontrados[i]);
-		}
-		
-		
-			
+		}/// fim do else		
 	    printf("\n tecle 'Enter' para digitar um novo arquivo ou tecle 's' se para sair \n");
 	    continua = getch();
 	    
