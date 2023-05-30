@@ -1,28 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-//#include <>
+#include <stdbool.h>
 
 int main(void){
 	char nomeArquivo[60];
 	char ext[4] = {".txt"};
     int matriz[5][5];
-    int encontrados[5];
-    int i,j;
-    int continua;
+    int encontrados[6];
+    int i, j;
+    int continua; 
+    int tot, vert, indice;
     
-    int tot, ver, indice;
-    
-    bool teste (int x){
+    bool verifica_encont(int x){
     	bool aux;
     	aux = false;
- 		for (i=1; i<= tot; i++){
- 			if (x = encontrados[i]){
+ 		for (i=1; i<tot; i++){
+ 			if (x == encontrados[i]){  ///// percorre o vetor de encontrados, se encontrar o valor
+			  							/// na posição i do vetor do encontrados[], aux recebe true. 
  				aux = true;
 			 }
 		 }
-		 return aux;   	
-    	
+		 return aux;   		
 	}
     
     
@@ -48,62 +46,44 @@ int main(void){
 	                fscanf(file,"%d",&matriz[i][j]);
 	            }
 	        }  
+	        
+	        
+	        for(i=1;i<6;i++){
+	        	encontrados[i] = 0;
+			}
 
 	        
 	        
 	        tot = 1;
-	        
 	        indice = 0;
-	        encontrados [tot] = 1;
+	        encontrados[tot] = 1;
+	        
 	        
 	        
 	        do { 
 	        	indice = indice + 1;
-	        	ver = encontrados[indice]
-	        	for (j = 1; j<6; j++){
-	        		if (matriz [ver,j] = 1  and !teste (j)) {
+	        	vert = encontrados[indice];
+	        	for(j = 1; j<6; j++){
+	        		if (matriz [vert,j] == 1  && verifica_encont(j) == false) { //// Percorre a matriz verificando se o vertice 
+																		//// na posição [vert] e [J] (J que vai de 1 à 5) é igual a 1.
+																		//// Se for e se a função "verifica_encont(j)" na posição J retornar falso,
+																		///  ele adicionar o valor no array[] de encontrados. se retornar true é pq ja tem no vertor de encont     
 						tot = tot + 1;
-						encontrados[tot] = j;						
+						encontrados[tot] = j;		
 					}
-	        		
-	        		
-				}
-	        
+				}	        
 	        	
 	        
-			} while (indice != tot);
-	        
-	        
-	        printf("As ligações de vertices sao:\n"); /// percorre
-		 	for(i=0;i<5;i++){
-		 		printf("%d-> ", i+1);
-	            for(j=0;j<5;j++){
-	                if(matriz[i][j] == 1){
-	                	printf("[%d]", j+1);
-	                	
-	                	if( matriz[i][j] != 0 && matriz[i][j] != j-1 != matriz[i][j] != j){
-	                		encontrados[i] = j+1;
-						}
-	                
-					}
-	            }
-	            printf("\n");	
-			}
-	        
-	        for(i=0;i<5;i++){
-				printf("[%d]", encontrados[i]);
-			}
-	        
-	        
-	        
-	        
-	        
-	
-					
+			} while (indice != tot);		
+				
 		}/// fim do else
 		
+		for(i=1;i<6;i++){
+					printf("[%d] ", encontrados[i]);
+		}
+		
+		
 			
-		fclose(file); /// fecha o arquivo
 	    printf("\n tecle 'Enter' para digitar um novo arquivo ou tecle 's' se para sair \n");
 	    continua = getch();
 	    
@@ -111,27 +91,6 @@ int main(void){
 
 	return 0;
 
-
-
-
-
-
-
-
-/*
-
-	fflush(stdin);  /// limpa o bufer 
-			system("cls");
-		    printf("\n---| Matriz %s: |---\n", nomeArquivo);
-		    printf("\n");
-		
-		    for(i=0;i<7;i++){ //// percorre toda a matriz[][] em linhas e colunas e printa na tela
-		        for(j=0;j<7;j++){
-		            printf(" [%d]",matriz[i][j]); /// mostra a matriz na tela
-		        }
-		        printf("\n");
-		    }
-		*/
 }
 
 
