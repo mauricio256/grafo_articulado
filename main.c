@@ -11,11 +11,11 @@ int main(void){
     int continua; 
     int tot, vert, indice;
     
-    bool verifica_encont(int x){
+    bool verifica_encont(int j){
     	bool aux;
     	aux = false;
- 		for (i=1; i<tot; i++){
- 			if (x == encontrados[i]){  ///// percorre o vetor de encontrados, se encontrar o valor
+ 		for (i=1; i<6; i++){
+ 			if (j == encontrados[i]){  ///// percorre o vetor de encontrados, se encontrar o valor
 			  							/// na posição i do vetor do encontrados[], aux recebe true. 
  				aux = true;
 			 }
@@ -47,33 +47,26 @@ int main(void){
 	            }
 	        }  
 	        
-	        
 	        for(i=1;i<6;i++){
 	        	encontrados[i] = 0;
 			}
-
-	        
-	        
+     
 	        tot = 1;
 	        indice = 0;
 	        encontrados[tot] = 1;
 	        
-	        
-	        
 	        do { 
-	        	indice = indice + 1;
-	        	vert = encontrados[indice];
+	        	indice++;
 	        	for(j = 1; j<6; j++){
-	        		if (matriz [vert,j] == 1  && verifica_encont(j) == false) { //// Percorre a matriz verificando se o vertice 
-																		//// na posição [vert] e [J] (J que vai de 1 à 5) é igual a 1.
-																		//// Se for e se a função "verifica_encont(j)" na posição J retornar falso,
-																		///  ele adicionar o valor no array[] de encontrados. se retornar true é pq ja tem no vertor de encont     
-						tot = tot + 1;
+	        		if (!verifica_encont(j) && matriz[indice][j] == 1) { //// Percorre a matriz verificando se o vertice 
+																				//// na posição [vert] e [J] (J que vai de 1 à 5) é igual a 1.
+																				//// Se for e se a função "verifica_encont(j)" na posição J retornar falso,
+																				///  ele adicionar o valor no array[] de encontrados. se retornar true é pq ja tem no vertor de encont     
+						tot++;
 						encontrados[tot] = j;		
-					}
-				}	        
-	        	
-	        
+					}	
+				}	 
+				
 			} while (indice != tot);		
 				
 		}/// fim do else
