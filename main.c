@@ -34,36 +34,60 @@ int main(void){
 	
 	
 	
-	
-	
-	
-	
-	
-	int verifica_caminhos(int matriz_sec[5][5]){
-			int cont;
-			tot = 1;
-	        indice = 0;
-	        encontrados[tot] = 1;
+	int verifica_caminhos(int matriz[5][5]){
+		int cont;
+		tot = 1;
+	    indice = 0;
+	    encontrados[tot] = 1;
 	        
-	        do { 
-	        	indice++;
-	        	for(j = 1; j<6; j++){
-	        		if (!verifica_encont(j) && matriz_sec[indice][j] == 1) { //// Percorre a matriz verificando se o vertice 
+	    do { 
+	        indice++;
+	        for(j = 1; j<6; j++){
+	        	if (matriz[indice][j] == 1 && !verifica_encont(j) ) { //// Percorre a matriz verificando se o vertice 
 																				//// na posição [vert] e [J] (J que vai de 1 à 5) é igual a 1.
 																				//// Se for e se a função "verifica_encont(j)" na posição J retornar falso,
 																				///  ele adicionar o valor no array[] de encontrados. se retornar true é pq ja tem no vertor de encont     
-						tot++;
-						encontrados[tot] = j;		
-					}	
-				}	 
+					tot++;
+					encontrados[tot] = j;		
+				}	
+			}	 
 				
-			} while (indice != tot);	
+		} while (indice != tot);	
 			
 		return	encontrados[indice]; /// retorna o valor do array de encontrado na ultima possição em que 
 									///	 encontrou um vertice (identificado por indice).
 	}
     
     
+    
+    
+    
+    
+    
+    bool verifica_articulacao(int zera_vert, int matriz_sec[5][5]){
+				
+		for(i=1;i<6;i++){
+		    for(j=1;j<6;j++){
+		        if(i != zera_vert && j != zera_vert){
+		            matriz_sec[i][zera_vert] = 0;
+		            matriz_sec[zera_vert][j] = 0;					
+				} 	
+		    }
+		}
+	
+		if (verifica_caminhos(matriz_sec) < 4){
+			printf(" [%d] -> E articulacao \n", zera_vert);
+		}	
+				
+	}
+	
+	
+	
+	
+	
+	
+	
+	
     
 
     
@@ -92,31 +116,14 @@ int main(void){
 	        } 
 	        
 	        
-
+	        //int cont = 2;
+	       // while(cont<6){
+	        	 verifica_articulacao(5, matriz_sec);
+			//	 cont++;	
+			//}
+	       
 	        
-
-	        ///// tentando zerar a matriz_sec
-	        int zera_vert = 5;
-	        
-	        for(i=1;i<6;i++){
-	            for(j=1;j<6;j++){
-	            		if(i != zera_vert && j != zera_vert){
-	            			////matriz_sec[i] = 0;
-							///printf("[%d]",matriz_sec[i][j]);	
-				} 
-	        }
-	            
-	            printf("\n");
-	        }
-	        
-			///////////////////////////////////////////////////////////////////////////////////////////
-			 
-			 
-			 
-		printf("[%d] vertices ligados", verifica_caminhos(matriz));
-     	
-		
-				
+     		
 		}/// fim do else		
 	    printf("\n tecle 'Enter' para digitar um novo arquivo ou tecle 's' se para sair \n");
 	    continua = getch();
